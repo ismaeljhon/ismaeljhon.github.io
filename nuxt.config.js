@@ -10,7 +10,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
@@ -58,5 +58,10 @@ export default {
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
   ssr: false,
-  target: 'static'
+  target: 'static',
+  loadingIndicator: {
+    name: 'three-bounce',
+    color: '#1976d2',
+    background: 'white'
+  }
 }
