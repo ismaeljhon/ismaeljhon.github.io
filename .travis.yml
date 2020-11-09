@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+ - '12'
+
+cache:
+    yarn: true
+    directories:
+      - dist
+
+script: 
+    yarn build
+
+deploy:
+ provider: pages
+ skip_cleanup: true
+ github_token: $GITHUB_TOKEN
+ local_dir: dist
+ target_branch: gh-pages
+ on:
+   branch: master-nuxt
