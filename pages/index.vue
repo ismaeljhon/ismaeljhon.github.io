@@ -10,5 +10,8 @@
 <script>
 export default {
 	name: 'Home',
+	head: {
+		title: 'Homepage'
+	}
 }
 </script>
