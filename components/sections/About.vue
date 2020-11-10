@@ -47,17 +47,18 @@
 				</span>
 			</v-btn>
 			<p class="mt-2 text-center">or</p>
-			<v-btn
-				@click.prevent="$vuetify.goTo('#contact')"
-				small
-				tile
-				depressed
-				outlined
-			>
-				<span class="font-weight-bold">
-					Want to know me more?
-				</span>
-			</v-btn>
+			<NuxtLink to="/about">
+				<v-btn
+					small
+					tile
+					depressed
+					outlined
+				>
+					<span class="font-weight-bold">
+						Want to know me more?
+					</span>
+				</v-btn>
+			</NuxtLink>
 		</v-container>
 
 		<div class="py-12"></div>
@@ -69,6 +70,7 @@ export default {
 	data: () => ({
 		skillSets: [
 			{ label: 'VueJs', link: 'https://vuejs.org/' },
+			{ label: 'NuxtJs', link: 'https://nuxtjs.org/' },
 			{ label: 'ElectronJs', link: 'https://www.electronjs.org/' },
 			{ label: 'Electron-Vue', link: 'https://github.com/SimulatedGREG/electron-vue' },
 			{ label: 'ExpressJS', link: 'https://expressjs.com/' },

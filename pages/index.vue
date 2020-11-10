@@ -3,7 +3,6 @@
 		<hero></hero>
 		<about></about>
 		<services-offered></services-offered>
-		<contact-me></contact-me>
 	</div>
 </template>
 
@@ -12,6 +11,7 @@ export default {
 	name: 'Home',
 	head: {
 		title: 'Homepage'
-	}
+	},
+	layout: 'homepage'
 }
 </script>

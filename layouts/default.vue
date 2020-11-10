@@ -1,8 +1,37 @@
 <template>
 	<div id="app">
 		<v-app>
+			<v-app-bar
+				app
+				height="100"
+				color="white"
+				dense
+			>
+				<v-spacer></v-spacer>
+				<NuxtLink to="/">
+					<v-avatar
+						size="100"
+						tile
+					>
+						<v-img
+							v-bind="props"
+							contain
+							src="/logo.png"
+						></v-img>
+					</v-avatar>
+				</NuxtLink>
+				<NuxtLink to="/about">
+					<v-btn text>About Me</v-btn>
+				</NuxtLink>
+				<NuxtLink to="/portfolio">
+					<v-btn text>Portfolio</v-btn>
+				</NuxtLink>
+				<v-btn text @click.prevent="$vuetify.goTo('#contact')">Contact</v-btn>
+				<v-spacer></v-spacer>
+			</v-app-bar>
 			<v-main>
 				<nuxt />
+			  	<contact-me></contact-me>
       		</v-main>
 			<v-footer
 				class="justify-center "
@@ -20,6 +49,6 @@
 
 <script>
 export default {
-	name: 'App',
-};
+	name: 'App'
+}
 </script>

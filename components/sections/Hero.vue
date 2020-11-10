@@ -2,7 +2,7 @@
     <section id="hero">
         <v-row no-gutters>
             <v-img
-                :min-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
+                :max-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
                 gradient="to top right, rgba(0,0, 0,.33), rgba(0, 0, 0,.7)"
                 src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80"
             >
@@ -53,6 +53,6 @@
 </template>
 <script>
 export default {
-    name: 'hero'
+    name: 'hero',
 }
 </script>
