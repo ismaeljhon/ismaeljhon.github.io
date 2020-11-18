@@ -14,6 +14,7 @@
         <NuxtLink to="/portfolio">
           <v-btn text>Portfolio</v-btn>
         </NuxtLink>
+        <v-btn href="/ismael-resume.pdf" target="_blank" text>Resume</v-btn>
         <v-btn text @click.prevent="$vuetify.goTo('#contact')">Contact</v-btn>
         <v-spacer></v-spacer>
       </v-app-bar>
