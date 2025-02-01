@@ -14,7 +14,9 @@ This is my personal portfolio website showcasing my skills, projects, and experi
 
 ### Contact
 Feel free to connect with me:
+
 Email: jalbuna.ismael@gmail.com
+
 LinkedIn: [Ismael Jhon](linkedin.com/in/ismael-jhon-jr-jalbuna-57b62771/)
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
