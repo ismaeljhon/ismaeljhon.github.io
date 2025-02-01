@@ -1,20 +1,20 @@
-# portfolio-nuxt
+# Portfolio Website
 
-## Build Setup
+### Overview
 
-```bash
-# install dependencies
-$ yarn install
+This is my personal portfolio website showcasing my skills, projects, and experience as a Senior Frontend Developer with 10 years of expertise.
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+### Technology used
+- Frontend: HTML, CSS, JavaScript
+- Frameworks/Libraries: VueJs (Vue2), NuxtJs, Vuetify
+- Styling: SCSS
+- Build Tools: Webpack
+- Version Control: Git & GitHub
+- Deployment: GitHub Pages
 
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-```
+### Contact
+Feel free to connect with me:
+Email: jalbuna.ismael@gmail.com
+LinkedIn: [Ismael Jhon](linkedin.com/in/ismael-jhon-jr-jalbuna-57b62771/)
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
