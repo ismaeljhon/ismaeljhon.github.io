@@ -6,7 +6,7 @@ export function About() {
   return (
     <section id="about" className="border-t border-rule">
       <div className="page-container py-20 md:py-28">
-        <SectionHeading index="01" label="About" title="One developer across every layer of the web." />
+        <SectionHeading index="03" label="About" title="One developer across every layer of the web." />
         <div className="grid gap-12 md:grid-cols-12">
           <div className="space-y-5 text-lg leading-relaxed md:col-span-7">
             {profile.summary.map((p) => <p key={p}>{p}</p>)}
