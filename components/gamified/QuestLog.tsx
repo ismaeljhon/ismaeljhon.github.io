@@ -47,13 +47,13 @@ export function QuestLog() {
           <p className="mt-1 flex flex-wrap gap-1">{project.technologies.map((t) => <span key={t} className="border border-navy/40 bg-parch px-1.5 font-mono text-xs">{t}</span>)}</p>
           <p className="mt-3 font-mono text-[0.7rem] uppercase opacity-70">My part</p>
           <p className="text-sm">{project.contribution ?? <ToBeAdded what="contribution" />}</p>
-          <p className="mt-3 text-sm font-semibold">
-            {project.url ? (
+          {project.url && (
+            <p className="mt-3 text-sm font-semibold">
               <a className="inline-flex items-center gap-1 text-ro-blue underline" href={project.url} target="_blank" rel="noopener noreferrer">
                 Visit live site <ArrowUpRight size={14} aria-hidden /><span className="sr-only">(opens in a new tab)</span>
               </a>
-            ) : <ToBeAdded what="live URL" />}
-          </p>
+            </p>
+          )}
         </div>
       </div>
 
@@ -69,6 +69,10 @@ export function QuestLog() {
           );
         })}
       </ul>
+
+      <p className="mt-5 border-t-2 border-navy/20 pt-3 text-sm italic opacity-80">
+        <span className="font-semibold not-italic">Disclaimer:</span> Some quests are shown for portfolio purposes only. The loot belongs to the original quest-givers.
+      </p>
     </RpgWindow>
   );
 }

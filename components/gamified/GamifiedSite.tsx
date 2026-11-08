@@ -25,7 +25,7 @@ export function GamifiedSite() {
         <NarrowHero />
         <div className="page-container">
           <Section id="quests">
-            <SectionIntro tag="Quest Log · Selected Projects" title="Completed quests" blurb={`Client and product work from ${profile.yearsOfExperience} years of building for the web. Pick a quest to see the details.`} />
+            <SectionIntro tag="Quest Log · Selected Projects" title="Completed quests" blurb={`A record of quests completed across ${profile.yearsOfExperience} years on the road, taken on for clients, guilds and as a solo adventurer. Pick a quest to see the details.`} />
             <QuestLog />
           </Section>
           <Section id="skills">
