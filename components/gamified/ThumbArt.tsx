@@ -9,9 +9,10 @@ const ART = {
   "E-commerce": { Icon: ShoppingBag, bg: "linear-gradient(135deg,#7a4f2f,#c08a54)" },
 } as const;
 
-/** Project thumbnail: the real screenshot when `image` is set, otherwise a neutral category tile. */
+/** Project thumbnail: the real screenshot when one is set, otherwise a neutral category tile. */
 export function ThumbArt({ project, className = "" }: { project: Project; className?: string }) {
-  if (project.image) return <img src={asset(project.image)} alt="" className={`object-cover ${className}`} />;
+  const src = project.previews?.desktop ?? project.image ?? project.previews?.mobile;
+  if (src) return <img src={asset(src)} alt="" loading="lazy" className={`object-cover object-top ${className}`} />;
   const { Icon, bg } = ART[project.category];
   return (
     <div aria-hidden className={`grid place-items-center text-white/85 ${className}`} style={{ background: bg }}>

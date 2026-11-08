@@ -90,7 +90,10 @@ export function QuestsMiniBody() {
   return (
     <div className="flex flex-1 flex-col gap-2.5 px-4 py-3">
       <ul className="grid grid-cols-3 gap-3">
-        {[projects[0], projects[1], projects[4]].map((p) => (
+        {(["Web Application", "WordPress", "E-commerce"] as const)
+          .map((c) => projects.find((p) => p.category === c))
+          .filter((p) => p !== undefined)
+          .map((p) => (
           <li key={p.slug}>
             <a href="#quests" className="flex h-full flex-col overflow-hidden rounded bg-[#fbf6ea] border-2 border-[#b9a57a] shadow-[0_3px_0_rgba(46,58,87,.25)] transition-transform hover:-translate-y-0.5">
               <ThumbArt project={p} className="h-[90px] w-full border-b-2 border-[#b9a57a]" />

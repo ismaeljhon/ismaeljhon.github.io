@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/types/portfolio";
-import { DevicePreview } from "./DevicePreview";
+import { DevicePreview } from "@/components/shared/DevicePreview";
 import { ToBeAdded } from "@/components/shared/PlaceholderText";
 
 export function ProjectCard({ project, featured }: { project: Project; featured: boolean }) {
