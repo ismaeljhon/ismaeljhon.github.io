@@ -5,7 +5,7 @@ export function ExperienceTimeline() {
   return (
     <section id="experience" className="border-t border-rule bg-paper-2">
       <div className="page-container py-20 md:py-28">
-        <SectionHeading index="04" label="Experience" title="Thirteen years, one thread: shipping working software." />
+        <SectionHeading index="05" label="Experience" title="Thirteen years, one thread: shipping working software." />
         <ol className="border-l border-ink/30">
           {experience.map((e) => (
             <li key={e.id} className="relative grid gap-2 pb-12 pl-6 last:pb-0 md:grid-cols-12 md:gap-8 md:pl-10">

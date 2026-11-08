@@ -1,21 +1,18 @@
-/* eslint-disable @next/next/no-img-element */
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/types/portfolio";
-import { asset } from "@/lib/asset";
+import { DevicePreview } from "./DevicePreview";
 import { ToBeAdded } from "@/components/shared/PlaceholderText";
 
-export function ProjectCard({ project, index, featured }: { project: Project; index: number; featured: boolean }) {
+export function ProjectCard({ project, featured }: { project: Project; featured: boolean }) {
   return (
     <article className={`group flex flex-col border border-rule bg-white/40 ${featured ? "md:col-span-2 md:flex-row" : ""}`}>
-      <div className={`relative flex aspect-[16/10] items-end overflow-hidden bg-ink p-4 text-paper ${featured ? "md:aspect-auto md:w-1/2" : ""}`}>
-        {project.image ? (
-          <img src={asset(project.image)} alt={`${project.name} preview`} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
-        ) : (
-          <>
-            <span aria-hidden className="absolute right-4 top-2 font-display text-8xl leading-none text-paper/10">{String(index + 1).padStart(2, "0")}</span>
-            <span className="font-mono text-xs uppercase tracking-wider text-paper/60">Preview to be added</span>
-          </>
-        )}
+      <div className={featured ? "md:w-1/2" : ""}>
+        <DevicePreview
+          name={project.name}
+          url={project.url}
+          desktop={project.previews?.desktop ?? project.image}
+          mobile={project.previews?.mobile}
+        />
       </div>
       <div className="flex flex-1 flex-col p-6">
         <p className="font-mono text-xs uppercase tracking-wider text-accent">{project.category}</p>
@@ -33,15 +30,13 @@ export function ProjectCard({ project, index, featured }: { project: Project; in
             </dd>
           </div>
         </dl>
-        <div className="mt-auto pt-6 text-sm font-semibold">
-          {project.url ? (
+        {project.url && (
+          <div className="mt-auto pt-6 text-sm font-semibold">
             <a href={project.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 underline underline-offset-4 hover:text-accent">
               Visit live site <ArrowUpRight size={14} aria-hidden /><span className="sr-only"> (opens in a new tab)</span>
             </a>
-          ) : (
-            <span className="font-normal"><ToBeAdded what="live URL" /></span>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </article>
   );

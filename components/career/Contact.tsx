@@ -13,7 +13,7 @@ export function Contact() {
   return (
     <section id="contact" className="border-t border-rule">
       <div className="page-container py-20 md:py-28">
-        <SectionHeading index="05" label="Contact" title="Have a project, a prototype or a legacy system in mind?" />
+        <SectionHeading index="06" label="Contact" title="Have a project, a prototype or a legacy system in mind?" />
         <div className="grid gap-10 md:grid-cols-12">
           <ul className="divide-y divide-rule border-y border-rule md:col-span-7">
             {rows.map(({ label, Icon, href, text }) => (

@@ -1,28 +1,16 @@
 "use client";
 
-import { useState } from "react";
 import { projects } from "@/data/projects";
 import { profile } from "@/data/profile";
-import type { ProjectCategory } from "@/types/portfolio";
 import { SectionHeading } from "./SectionHeading";
 import { ProjectCard } from "./ProjectCard";
+import { groups, useProjectFilter } from "./projectFilters";
 
-const filters: { label: string; categories: ProjectCategory[] | "all" }[] = [
-  { label: "All", categories: "all" },
-  { label: "Websites", categories: ["WordPress"] },
-  { label: "E-commerce", categories: ["E-commerce"] },
-  { label: "Web Applications", categories: ["Web Application"] },
-  { label: "Mobile Applications", categories: [] },
-  { label: "Desktop", categories: [] },
-];
+/** Cards per sub-section (one row of the 3-column grid); the rest live in the Project Archive. */
+const PREVIEW_LIMIT = 3;
 
 export function Projects() {
-  const [active, setActive] = useState(filters[0].label);
-  const filter = filters.find((f) => f.label === active) ?? filters[0];
-  // Keep each project's original position so its card number doesn't shift when filtering.
-  const visible = projects
-    .map((p, i) => ({ p, i }))
-    .filter(({ p }) => filter.categories === "all" || filter.categories.includes(p.category));
+  const { setActive } = useProjectFilter();
 
   return (
     <section id="projects" className="border-t border-rule">
@@ -38,32 +26,28 @@ export function Projects() {
             </>
           }
         />
-        <div role="group" aria-label="Filter projects by type" className="mb-8 flex flex-wrap gap-2 font-mono text-xs uppercase tracking-wider">
-          {filters.map((f) => {
-            const isActive = f.label === active;
+        <div className="space-y-14">
+          {groups.map((g) => {
+            const items = projects.filter((p) => g.categories.includes(p.category));
+            if (items.length === 0) return null;
             return (
-              <button
-                key={f.label}
-                type="button"
-                aria-pressed={isActive}
-                onClick={() => setActive(f.label)}
-                className={`border px-3 py-1.5 transition-colors ${isActive ? "border-ink bg-ink text-paper" : "border-rule text-ink-2 hover:border-ink hover:text-ink"}`}
-              >
-                {f.label}
-              </button>
+              <section key={g.id} aria-labelledby={`projects-${g.id}`}>
+                <div className="mb-5 flex items-baseline justify-between gap-4 border-b border-rule pb-3">
+                  <h3 id={`projects-${g.id}`} className="font-display text-2xl tracking-tight">{g.title}</h3>
+                  <a
+                    href="#archive"
+                    onClick={() => setActive(g.title)}
+                    className="font-mono text-xs uppercase tracking-wider underline underline-offset-4 hover:text-accent"
+                  >
+                    View all<span className="sr-only"> {g.title}</span> ({items.length}) →
+                  </a>
+                </div>
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  {items.slice(0, PREVIEW_LIMIT).map((p) => <ProjectCard key={p.slug} project={p} featured={false} />)}
+                </div>
+              </section>
             );
           })}
-        </div>
-        <div aria-live="polite">
-          {visible.length > 0 ? (
-            <div className="grid gap-6 md:grid-cols-2">
-              {visible.map(({ p, i }) => <ProjectCard key={p.slug} project={p} index={i} featured={false} />)}
-            </div>
-          ) : (
-            <p className="border border-dashed border-rule p-10 text-center font-mono text-sm text-ink-2">
-              Nothing under {filter.label} yet.
-            </p>
-          )}
         </div>
         <p className="mt-10 border-t border-rule pt-6 text-sm italic text-ink-2">
           <span className="font-semibold not-italic text-ink">Disclaimer:</span> Some projects are displayed for portfolio purposes only and remain the property of their respective owners.

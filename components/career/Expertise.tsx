@@ -5,7 +5,7 @@ export function Expertise() {
   return (
     <section id="expertise" className="border-t border-rule bg-paper-2">
       <div className="page-container py-20 md:py-28">
-        <SectionHeading index="02" label="Technical Expertise" title="Tools I reach for, grouped by the work they do." />
+        <SectionHeading index="03" label="Technical Expertise" title="Tools I reach for, grouped by the work they do." />
         <div className="grid gap-px border border-rule bg-rule md:grid-cols-2">
           {skillGroups.map((g, i) => (
             <div key={g.id} className="bg-paper-2 p-6 md:p-8">

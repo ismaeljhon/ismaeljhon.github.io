@@ -3,6 +3,8 @@ import { Hero } from "./Hero";
 import { About } from "./About";
 import { Expertise } from "./Expertise";
 import { Projects } from "./Projects";
+import { ProjectArchive } from "./ProjectArchive";
+import { ProjectFilterProvider } from "./projectFilters";
 import { ExperienceTimeline } from "./ExperienceTimeline";
 import { Contact } from "./Contact";
 import { profile } from "@/data/profile";
@@ -14,7 +16,10 @@ export function CareerSite() {
       <CareerNav />
       <main id="main">
         <Hero />
-        <Projects />
+        <ProjectFilterProvider>
+          <Projects />
+          <ProjectArchive />
+        </ProjectFilterProvider>
         <Expertise />
         <About />
         <ExperienceTimeline />

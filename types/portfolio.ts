@@ -27,6 +27,8 @@ export interface Project {
   url?: string;
   /** Path under /public, e.g. "/images/projects/synergy-hub.png". */
   image?: string;
+  /** Screenshots shown in the career-mode device frames, paths under /public. Placeholders until set. */
+  previews?: { desktop?: string; mobile?: string };
   /** Gamified-mode quest framing. */
   quest: { title: string; reward?: string };
 }
