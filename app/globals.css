@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-pixel: var(--font-pixel), "Courier New", monospace;
+  --font-reader: var(--font-newsreader), Georgia, serif;
+  --font-ui: var(--font-nunito), system-ui, sans-serif;
+
+  /* Career palette */
+  --color-paper: #f5f2ea;
+  --color-paper-2: #ece7da;
+  --color-ink: #15171b;
+  --color-ink-2: #4b4f57;
+  --color-rule: #d6d0c0;
+  --color-accent: #b8402a;
+
+  /* Gamified palette */
+  --color-navy: #1d2742;
+  --color-navy-2: #2b3a63;
+  --color-parch: #f3e9d2;
+  --color-parch-2: #e6d8b8;
+  --color-ro-blue: #4a63a8;
+  --color-ro-gold: #e0b240;
+  --color-ro-green: #3a8a4a;
+  --color-grass: #a6d785;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-sans); }
+
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+
+/* Tailwind v4 resets buttons to the default cursor; show the pointer on every enabled clickable control. */
+@layer base {
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]), [role="radio"], [role="tab"], summary, select, label[for], input[type="checkbox"], input[type="radio"], input[type="submit"], input[type="button"] { cursor: pointer; }
+}
+
+/* Shared page column for both modes: 1280px max, 20px side padding on phones, 24px from 768px up (content 1232px). */
+@layer components {
+  .page-container { width: 100%; max-width: 80rem; margin-inline: auto; padding-inline: 1.25rem; }
+  @media (min-width: 48rem) { .page-container { padding-inline: 1.5rem; } }
+}
+
+/* Gamified pixel UI (v5 "Town" mockup palette) */
+.rpg-window {
+  background: #f4ecda;
+  color: #22283a;
+  border: 2px solid #2e3a57;
+  box-shadow: inset 0 0 0 1px #fff8e8, 0 4px 0 rgba(30, 38, 60, 0.35);
+}
+.rpg-titlebar {
+  background: linear-gradient(#819ed3, #5574ae);
+  color: #fff;
+  font-family: var(--font-pixel);
+  font-size: 1rem;
+  text-shadow: 0 1px 0 #2e3a57;
+  padding: 0 0.6rem;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #2e3a57;
+}
+.rpg-btn {
+  font-family: var(--font-ui);
+  font-weight: 800;
+  border-radius: 5px;
+  border: 1.5px solid #18224a;
+  padding: 0.5rem 1rem;
+  transition: transform 0.08s;
+}
+.rpg-btn:active { transform: translateY(2px); }
+.rpg-btn-primary {
+  background: linear-gradient(#3f57a0, #2a3c78);
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 2px 0 #18224a;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+}
+.rpg-btn-light {
+  background: linear-gradient(#fffdf6, #efe6d2);
+  color: #22283a;
+  border-color: #3a3f55;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 2px 0 #8a7a5a;
+}
+.pixelated { image-rendering: pixelated; }
+
+/* Gamified Mode: pixel-art cursors (arrow everywhere, pointing glove on clickables). Paths come from CSS variables set on the Gamified root so they respect basePath. */
+.gamified-cursors, .gamified-cursors * { cursor: var(--cursor-default); }
+.gamified-cursors :is(a[href], button:not(:disabled), [role="button"]:not([aria-disabled="true"]), [role="radio"], [role="tab"], summary, select, label[for], input[type="checkbox"], input[type="radio"], input[type="submit"], input[type="button"]),
+.gamified-cursors :is(a[href], button:not(:disabled), [role="button"], [role="radio"]) * { cursor: var(--cursor-link); }
+.gamified-cursors :is(input:not([type]), input[type="text"], input[type="email"], input[type="search"], input[type="url"], input[type="tel"], textarea) { cursor: text; }
