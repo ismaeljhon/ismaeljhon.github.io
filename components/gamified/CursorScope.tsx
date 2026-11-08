@@ -7,13 +7,13 @@ type Anim = { frames: string[]; ms: number[]; hot: [number, number]; fallback: s
 
 /** Frames and timings decoded from "Ro Normal Select.ani" and "Ro Link Select.ani" (hotspot 0,0 in both). */
 const NORMAL: Anim = {
-  frames: [0, 1, 2, 3, 4, 5].map((i) => `/images/game/cursor/ro-normal-${i}.png`),
+  frames: [0, 1, 2, 3, 4, 5].map((i) => `/images/game/cursor/normal-${i}.png`),
   ms: [500, 100, 100, 100, 100, 100],
   hot: [0, 0],
   fallback: "auto",
 };
 const LINK: Anim = {
-  frames: [0, 1].map((i) => `/images/game/cursor/ro-link-${i}.png`),
+  frames: [0, 1].map((i) => `/images/game/cursor/link-${i}.png`),
   ms: [167, 167],
   hot: [0, 0],
   fallback: "pointer",
