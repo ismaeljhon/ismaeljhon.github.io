@@ -17,10 +17,9 @@ export const profile: Profile = {
   // TODO(owner): set `open` and `label` to your real availability.
   availability: { open: true, label: "Available for new projects" },
   contact: {
-    // TODO(owner): fill these in. Undefined values render as "to be added".
-    email: undefined,
-    linkedin: undefined,
-    github: undefined,
+    email: "jalbuna.ismael@gmail.com",
+    linkedin: "https://www.linkedin.com/in/ismaeljhon/",
+    github: "https://github.com/ismaeljhon/",
   },
 };
 
